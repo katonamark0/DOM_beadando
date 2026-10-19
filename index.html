@@ -6,7 +6,326 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <script src="script.js"></script>
+    <script>
+
+
+        document.body.style.margin = "0";
+        document.body.style.backgroundColor = "#E8E0D0";
+        document.body.style.color = "#222";
+
+
+
+        let oldal = document.createElement("div");
+
+        oldal.style.maxWidth = "1100px";
+        oldal.style.width = "90%";
+        oldal.style.margin = "auto";
+        oldal.style.backgroundColor = "white";
+        oldal.style.minHeight = "100vh";
+
+        document.body.appendChild(oldal);
+
+
+
+        let fejléc = document.createElement("div");
+
+        fejléc.style.backgroundColor = "#102A43";
+        fejléc.style.color = "white";
+        fejléc.style.padding = "25px";
+        fejléc.style.textAlign = "center";
+
+        oldal.appendChild(fejléc);
+
+        let cim = document.createElement("h1");
+
+        cim.textContent = "ONE PIECE";
+        cim.style.fontSize = "40px";
+        cim.style.margin = "0";
+        cim.style.color = "#FFD166";
+
+        fejléc.appendChild(cim);
+
+        let alcim = document.createElement("p");
+
+        alcim.textContent = "1997 - Egyszer valamikor vége lesz";
+        alcim.style.fontSize = "18px";
+
+        fejléc.appendChild(alcim);
+
+
+
+        let menu = document.createElement("div");
+
+        menu.style.backgroundColor = "#C0392B";
+        menu.style.padding = "15px";
+        menu.style.display = "flex";
+        menu.style.justifyContent = "center";
+        menu.style.flexWrap = "wrap";
+        menu.style.gap = "25px";
+
+        oldal.appendChild(menu);
+
+        let menupontok = [
+            ["Főoldal", "fooldal"],
+            ["Karakterek", "karakterek"],
+            ["Ördöggyümölcsök", "gyumolcsok"],
+            ["Bounty", "bounty"]
+        ];
+
+        for (let adat of menupontok) {
+            let link = document.createElement("a");
+        
+            link.textContent = adat[0];
+            link.href = "#" + adat[1];
+            link.style.color = "white";
+            link.style.textDecoration = "none";
+            link.style.fontWeight = "bold";
+        
+            menu.appendChild(link);
+        }
+
+
+
+        let bemutato = document.createElement("div");
+
+        bemutato.id = "fooldal";
+        bemutato.style.padding = "25px";
+
+        oldal.appendChild(bemutato);
+
+        let bemutatoCim = document.createElement("h2");
+
+        bemutatoCim.textContent = "A kaland kezdete";
+        bemutatoCim.style.color = "#C0392B";
+
+        bemutato.appendChild(bemutatoCim);
+
+        let bemutatoSzoveg = document.createElement("p");
+
+        bemutatoSzoveg.textContent =
+            "A One Piece Eiichiro Oda híres mangája, amely Monkey D. Luffy " +
+            "kalandjait követi. Luffy célja, hogy megtalálja a legendás One Piece " +
+            "kincset, és ő legyen a kalózok királya. Barátaival együtt bejárja " +
+            "a tengereket, új ellenfelekkel találkozik, és egyre közelebb kerül az álmához.";
+
+        bemutatoSzoveg.style.lineHeight = "1.8";
+        bemutatoSzoveg.style.fontSize = "17px";
+
+        bemutato.appendChild(bemutatoSzoveg);
+
+
+
+        let karakterResz = document.createElement("div");
+
+        karakterResz.id = "karakterek";
+        karakterResz.style.padding = "25px";
+        karakterResz.style.backgroundColor = "#F4F1EA";
+
+        oldal.appendChild(karakterResz);
+
+        let karakterCim = document.createElement("h2");
+
+        karakterCim.textContent = "A Szalmakalapos kalózok";
+        karakterCim.style.color = "#C0392B";
+
+        karakterResz.appendChild(karakterCim);
+
+
+
+        let karakterek = [
+            {
+                nev: "Monkey D. Luffy",
+                szerep: "Kapitány",
+                kepesseg: "Gumi és Haki",
+                kep: "luffy.jpg"
+            },
+            {
+                nev: "Roronoa Zoro",
+                szerep: "Kardforgató",
+                kepesseg: "Háromkardos stílus",
+                kep: "zoro.jpg"
+            },
+            {
+                nev: "Usopp",
+                szerep: "Mesterlövész",
+                kepesseg: "Csúzli",
+                kep: "usopp.jpg"
+            },
+            {
+                nev: "Sanji",
+                szerep: "Szakács",
+                kepesseg: "Fekete láb stílus",
+                kep: "sanji.jpg"
+            }
+        ];
+        
+        let kartyak = document.createElement("div");
+        
+        kartyak.style.display = "flex";
+        kartyak.style.flexWrap = "wrap";
+        kartyak.style.gap = "100px";
+        
+        karakterResz.appendChild(kartyak);
+        
+        
+        for (let karakter of karakterek) {
+        
+            let kartya = document.createElement("div");
+        
+            kartya.style.width = "210px";
+            kartya.style.flex = "1 1 180px";
+            kartya.style.backgroundColor = "white";
+            kartya.style.padding = "15px";
+            kartya.style.boxSizing = "border-box";
+            kartya.style.borderRadius = "10px";
+            kartya.style.textAlign = "center";
+            kartya.style.boxShadow = "0 2px 8px #cccccc";
+        
+            kartyak.appendChild(kartya);
+        
+        
+            let kep = document.createElement("img");
+        
+            kep.src = karakter.kep;
+            kep.alt = karakter.nev;
+            kep.style.width = "100%";
+            kep.style.height = "180px";
+            kep.style.objectFit = "cover";
+            kep.style.borderRadius = "8px";
+        
+            kartya.appendChild(kep);
+        
+        
+            let nev = document.createElement("h3");
+        
+            nev.textContent = karakter.nev;
+            nev.style.color = "#C0392B";
+        
+            kartya.appendChild(nev);
+        
+        
+            let szerep = document.createElement("p");
+        
+            szerep.textContent = "Szerep: " + karakter.szerep;
+        
+            kartya.appendChild(szerep);
+        
+        
+            let kepesseg = document.createElement("p");
+        
+            kepesseg.textContent = "Képesség: " + karakter.kepesseg;
+        
+            kartya.appendChild(kepesseg);
+        }
+
+
+
+        let gyumolcsResz = document.createElement("div");
+
+        gyumolcsResz.id = "gyumolcsok";
+        gyumolcsResz.style.padding = "25px";
+
+        oldal.appendChild(gyumolcsResz);
+
+        let gyumolcsCim = document.createElement("h2");
+
+        gyumolcsCim.textContent = "Legendás ördöggyümölcsök";
+        gyumolcsCim.style.color = "#C0392B";
+
+        gyumolcsResz.appendChild(gyumolcsCim);
+
+        let gyumolcsok = [
+            "Gomu Gomu no Mi – Luffy gumiszerű képességei",
+            "Mera Mera no Mi – tűz irányítása",
+            "Ope Ope no Mi – különleges műtéti képességek",
+            "Hie Hie no Mi – jég létrehozása és irányítása",
+            "Goro Goro no Mi – villám irányítása"
+        ];
+
+        let gyumolcsLista = document.createElement("ul");
+
+        for (let gyumolcs of gyumolcsok) {
+        
+            let elem = document.createElement("li");
+        
+            elem.textContent = gyumolcs;
+            elem.style.margin = "12px 0";
+        
+            gyumolcsLista.appendChild(elem);
+        }
+
+        gyumolcsResz.appendChild(gyumolcsLista);
+
+
+
+        let BountyResz = document.createElement("div");
+
+        BountyResz.id = "bounty";
+        BountyResz.style.padding = "25px";
+        BountyResz.style.backgroundColor = "#F4F1EA";
+
+        oldal.appendChild(BountyResz);
+
+        let bountyCim = document.createElement("h2");
+
+        bountyCim.textContent = "Körözési plakátok";
+        bountyCim.style.color = "#C0392B";
+
+        BountyResz.appendChild(bountyCim);
+
+        let bounty = [
+            {
+                nev: "Monkey D. Luffy",
+                osszeg: "3 000 000 000 beli"
+            },
+            {
+                nev: "Roronoa Zoro",
+                osszeg: "1 111 000 000 beli"
+            },
+            {
+                nev: "Sanji",
+                osszeg: "1 032 000 000 beli"
+            }
+        ];
+        
+        for (let kalóz of bounty) {
+        
+            let sor = document.createElement("div");
+        
+            sor.style.padding = "12px";
+            sor.style.margin = "10px 0";
+            sor.style.backgroundColor = "white";
+            sor.style.borderLeft = "5px solid #C0392B";
+        
+            BountyResz.appendChild(sor);
+        
+        
+            let nev = document.createElement("strong");
+        
+            nev.textContent = kalóz.nev;
+        
+            sor.appendChild(nev);
+        
+        
+            let osszeg = document.createElement("p");
+        
+            osszeg.textContent = "Bounty: " + kalóz.osszeg;
+            osszeg.style.marginBottom = "0";
+        
+            sor.appendChild(osszeg);
+        }
+
+
+        let lab = document.createElement("div");
+
+        lab.textContent = "Katona Márk © 2026";
+        lab.style.backgroundColor = "#102A43";
+        lab.style.color = "white";
+        lab.style.textAlign = "center";
+        lab.style.padding = "20px";
+
+        oldal.appendChild(lab);
+
+    </script>
 </body>
 </html>
